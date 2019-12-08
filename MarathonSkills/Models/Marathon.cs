@@ -24,7 +24,6 @@ namespace MarathonSkills.Models
         [StringLength(3)]
         public string CountryCode { get; set; }
 
-        public int YearHeld { get; set; }
-
+        public int? YearHeld { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace MarathonSkills.Models
     public class Event
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [StringLength(6)]
         public string EventId { get; set; }
         
@@ -23,21 +22,21 @@ namespace MarathonSkills.Models
         [ForeignKey("EventType")]
         public string EventTypeId { get; set; }
 
-        [ForeignKey("EventTypeId")]
-        public EventType EventType { get; set; }
+        //[ForeignKey("EventTypeId")]
+        //public EventType EventType { get; set; }
 
         [Required]
         [ForeignKey("Marathon")]
         public int MarathonId { get; set; }
 
-        [ForeignKey("MarathonId")]
-        public Marathon Marathon{ get; set; }
+        //[ForeignKey("MarathonId")]
+        //public Marathon Marathon{ get; set; }
 
         public DateTime StartDateTime { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]
-        public decimal Cost { get; set; }
+        public decimal? Cost { get; set; }
 
-        public int MaxParticipants { get; set; }
+        public int? MaxParticipants { get; set; }
     }
 }

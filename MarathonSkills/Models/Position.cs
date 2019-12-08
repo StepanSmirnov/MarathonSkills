@@ -11,7 +11,7 @@ namespace MarathonSkills.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int PositionId { get; set; }
         
         [Required]
         [StringLength(50)]

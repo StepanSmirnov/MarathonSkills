@@ -26,7 +26,7 @@ namespace MarathonSkills.Models
 
         [Required]
         [ForeignKey("RegistrationStatus")]
-        public int RegistrationStatusID { get; set; }
+        public int RegistrationStatusId { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(10,2)")]
@@ -34,7 +34,7 @@ namespace MarathonSkills.Models
 
         [Required]
         [ForeignKey("Charity")]
-        public int CharityID { get; set; }
+        public int CharityId { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(10,2)")]

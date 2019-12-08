@@ -29,10 +29,16 @@ namespace MarathonSkills
             services.AddRazorPages();
             services.AddSignalRCore();
             string connection = Configuration.GetConnectionString("ConnectionString");
-            services.AddDbContext<MarathonContext>(options =>
+            services.AddDbContext<MarathonSkillsContext>(options =>
                 options.UseSqlServer(connection));
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<MarathonContext>();
+            services.AddIdentity<User, IdentityRole>(options => {
+                options.Password.RequiredLength = 6;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+            })
+                .AddEntityFrameworkStores<MarathonSkillsContext>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
             
         }
@@ -56,11 +62,14 @@ namespace MarathonSkills
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Users", action = "Index" });
+                    
             });
         }
     }

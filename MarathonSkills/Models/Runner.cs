@@ -15,7 +15,8 @@ namespace MarathonSkills.Models
 
         [Required]
         [StringLength(100)]
-        public string Email { get; set; }
+        [ForeignKey("User")]
+        public string UserId { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -28,4 +29,5 @@ namespace MarathonSkills.Models
         [StringLength(3)]
         public string CountryCode { get; set; }
     }
+
 }

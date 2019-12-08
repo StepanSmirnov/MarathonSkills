@@ -18,12 +18,12 @@ namespace MarathonSkills.Models
         public int RegistrationId { get; set; }
 
         [Required]
-        [ForeignKey("Registration")]
+        [ForeignKey("Event")]
         [StringLength(6)]
         public string EventId { get; set; }
 
-        public int BibNumber { get; set; }
+        public int? BibNumber { get; set; }
 
-        public int RaceTime { get; set; }
+        public int? RaceTime { get; set; }
     }
 }

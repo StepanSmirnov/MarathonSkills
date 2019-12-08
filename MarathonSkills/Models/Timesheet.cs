@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace MarathonSkills.Models
 {
-    public class Charity
+    public class Timesheet
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CharityId { get; set; }
+        public int TimesheetId { get; set; }
         
         [Required]
-        [StringLength(maximumLength: 100)]
-        public string CharityName { get; set; }
+        [ForeignKey("Staff")]
+        public int StaffId { get; set; }
+
+        public DateTime StartDateTime { get; set; }
         
-        [StringLength(maximumLength: 2000)]
-        public string CharityDescription { get; set; }
-       
-        [StringLength(maximumLength: 50)]
-        public string CharityLogo { get; set; }
+        public DateTime EndDateTime { get; set; }
+
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal? PayAmount { get; set; }
     }
 }
