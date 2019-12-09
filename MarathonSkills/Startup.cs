@@ -68,7 +68,7 @@ namespace MarathonSkills
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Users", action = "Index" });
+                    defaults: new { controller = "Home", action = "Index" });
                     
             });
         }

@@ -25,17 +25,6 @@ namespace MarathonSkills.Controllers
 
         public IActionResult Index()
         {
-            //User user = new User() { Email = "sssprogramer@gmail.com", FirstName = "Stepan", LastName = "Smirnov" };
-            //_userManager.CreateAsync(user, "");
-
-            //foreach (var tempUser in context.TempUser)
-            //{
-            //    var user = new User() { UserName = tempUser.Email, Email = tempUser.Email, FirstName = tempUser.FirstName, LastName = tempUser.LastName };
-            //    _userManager.CreateAsync(user, tempUser.Password).Wait();
-            //    _userManager.AddToRoleAsync(user, context.Roles.Find(tempUser.RoleId[0]).RoleName).Wait();
-            //    //_userManager.Dispose();
-            //}
-            //context.SaveChanges();
             return View();
         }
     }
