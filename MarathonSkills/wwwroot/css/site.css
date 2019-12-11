@@ -26,7 +26,9 @@ html {
 
 body {
   /* Margin bottom by footer height */
+  margin: 0px;
   margin-bottom: 60px;
+  color: rgb(80, 80, 80);
 }
 
 header {
@@ -45,13 +47,8 @@ header h2 {
     font-weight: 300;
 }
 
-.horizontalCenter{
-    text-align:center;
-}
-
-.verticalCenter{
-    margin-bottom:auto;
-    margin-top: auto;
+.horizontalCenter {
+    text-align: center;
 }
 
 footer {
@@ -64,35 +61,90 @@ footer {
     color: white;
 }
 
-#buttonsContainer {
-    width: 20em;
+.buttonsContainer {
     margin-left: auto;
     margin-right: auto;
 }
 
-#homePage input[type=button] {
-    display: block;
-    margin: 8px auto 8px auto;
-    padding: 5px;
+#homePage .buttonsContainer{
+    width: 20em;
+}
+
+#infoPage .buttonsContainer {
+    width: 24em;
+}
+
+#infoPage h2{
+    text-align: center;
+}
+
+a.buttonLink {
     background-color: rgb(235, 235, 235);
     border-color: rgb(180, 180, 180);
-    font-size: 14pt;
     border-style: solid;
-    border-radius: 1em;
+    border-radius: 0.5em;
     padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    margin: 1em;
+    border-width: thin;
+}
+
+.buttonsContainer a.buttonLink {
+    display: block;
+}
+
+a.buttonLink:visited {
+    color: gray;
+    text-decoration: none;
+}
+
+a.buttonLink:hover {
+    box-shadow: rgb(180,180,180) 1px 1px 4px 1px;
+}
+
+a.buttonLink:active {
+    box-shadow: none;
+}
+
+#homePage a.buttonLink {
+    font-size: 14pt;
     width: 100%;
+    margin: 8px auto 8px auto;
 }
 
-input[type=button]:focus {
-    outline: none;
-}
-
-input[type=button]#loginButton {
+a.buttonLink#loginButton {
     width: 5em;
     padding: 0.5em;
-    margin-left: auto;
-    margin-right: 10px;
     position: absolute;
     right: 20px;
     bottom: 60px;
 }
+
+header a.buttonLink {
+    padding: 0.3em;
+    vertical-align: super;
+    display:inline;
+}
+
+.charityItem img{
+    width: 15%;
+    vertical-align: top;
+}
+
+.charityItem div{
+    width: 80%
+}
+
+.charityItem img, .charityItem div{
+    display: inline-block;
+}
+
+#currentPageLink{
+    color: black;
+}
+
+#pagesControl{
+    text-align: center;
+}
+

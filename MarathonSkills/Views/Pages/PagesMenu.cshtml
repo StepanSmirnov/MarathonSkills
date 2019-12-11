@@ -1,0 +1,18 @@
+﻿@{
+    Layout = null;
+}
+@using  MarathonSkills.ViewModels
+@model PageData
+
+    <div id="pagesControl">
+        @foreach(int num in Model.PageNumbers())
+        {
+            @if (num == Model.CurrentPage)
+            {
+                <a id="currentPageLink">@num</a>
+            }
+            else {
+                <a asp-controller="@Model.ControllerName" asp-action="@Model.ActionName" asp-route-page="@num">@num</a>
+            }
+        }
+    </div>

@@ -1,0 +1,23 @@
+﻿@using MarathonSkills.ViewModels
+@using MarathonSkills.Models
+
+@model PagesViewModel<Charity>
+
+@foreach (var item in Model.Items)
+{
+    <div class="charityItem">
+        <img src="~/lib/images/@item.CharityLogo" alt="@item.CharityLogo"/>
+        <div>
+            <h2>@item.CharityName</h2>
+            <p>@item.CharityDescription</p>
+        </div>
+    </div>
+}
+
+<div class="pagesMenuContainer">
+    @{
+        await Html.RenderPartialAsync("~/Views/Pages/PagesMenu.cshtml", Model.Data);
+    }
+</div>
+
+

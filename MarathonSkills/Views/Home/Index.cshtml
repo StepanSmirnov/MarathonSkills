@@ -2,10 +2,10 @@
     Layout = "_HomeLayout.cshtml";
 }
 <div id="homePage">
-    <div class="horizontalCenter verticalCenter" id="buttonsContainer">
-        <input type="button" value="Я хочу стать бегуном" />
-        <input type="button" value="Я хочу стать спонсором бегуна" />
-        <input type="button" value="Я хочу узнать больше о событии" />
+    <div class="horizontalCenter verticalCenter buttonsContainer">
+        @Html.ActionLink("Я хочу стать бегуном", "Index", "Info", null, new {@class= "buttonLink"})
+        @Html.ActionLink("Я хочу стать спонсором бегуна", "Index", "Info", null, new {@class= "buttonLink"})
+        @Html.ActionLink("Я хочу узнать больше о событии", "Index", "Info", null, new {@class= "buttonLink"});
     </div>
-    <input id="loginButton" type="button" value="Login" />
+    @Html.ActionLink("Login", "Index", "Info", null, new {@class= "buttonLink", id="loginButton"})
 </div>

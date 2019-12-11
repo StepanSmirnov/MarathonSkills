@@ -2,14 +2,17 @@
 
 <html>
 <head>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <header>
-        <input type="button" value="Назад" />
-        <div>
-            <h1>MARATHON SKILLS 2019</h1>
+        <a href="" class="buttonLink" id="backButton">Назад</a>
+        <div class="d-inline">
+            <h1 class="d-inline">MARATHON SKILLS 2019</h1>
         </div>
     </header>
     <div>
@@ -18,5 +21,10 @@
     <footer>
         <div class="horizontalCenter">18 дней 8 часов и 17 минут до старта марафона!</div>
     </footer>
+    <script>
+        $(document).ready(function () {
+            $("#backButton").click(function () { history.back(1); return false;});
+        });
+    </script>
 </body>
 </html>
