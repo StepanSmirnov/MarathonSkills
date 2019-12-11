@@ -21,14 +21,16 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
-  font-family: Arial;
 }
 
 body {
   /* Margin bottom by footer height */
-  margin: 0px;
-  margin-bottom: 60px;
-  color: rgb(80, 80, 80);
+    font-family: Arial;
+    margin: 0px;
+    margin-bottom: 60px;
+    color: rgb(80, 80, 80);
+    font-size: 14pt;
+    font-weight: 300;
 }
 
 header {
@@ -44,11 +46,10 @@ header h1{
 header h2 {
     color: rgb(180, 180, 180);
     font-style: italic;
-    font-weight: 300;
 }
 
 .horizontalCenter {
-    text-align: center;
+    margin: 0 auto;
 }
 
 footer {
@@ -74,48 +75,52 @@ footer {
     width: 24em;
 }
 
-#infoPage h2{
-    text-align: center;
-}
-
-a.buttonLink {
+.buttonLink {
     background-color: rgb(235, 235, 235);
     border-color: rgb(180, 180, 180);
     border-style: solid;
     border-radius: 0.5em;
-    padding: 1em;
     text-align: center;
     text-decoration: none;
-    margin: 1em;
     border-width: thin;
+    padding: 0 10px;
+    color:inherit;
+    line-height: 32px;
+    display: inline-block;
+}
+
+.buttonLink.large{
+    padding: 1em;
+    margin: 1em;
+    font-size: 16pt;
 }
 
 .buttonsContainer a.buttonLink {
     display: block;
 }
 
-a.buttonLink:visited {
-    color: gray;
+.buttonLink:visited {
+    color: inherit;
     text-decoration: none;
 }
 
-a.buttonLink:hover {
+.buttonLink:hover {
     box-shadow: rgb(180,180,180) 1px 1px 4px 1px;
+    text-decoration: none;
 }
 
-a.buttonLink:active {
+.buttonLink:active {
     box-shadow: none;
 }
 
-#homePage a.buttonLink {
+#homePage .buttonLink {
     font-size: 14pt;
     width: 100%;
     margin: 8px auto 8px auto;
 }
 
-a.buttonLink#loginButton {
+.buttonLink#loginButton {
     width: 5em;
-    padding: 0.5em;
     position: absolute;
     right: 20px;
     bottom: 60px;
@@ -143,8 +148,3 @@ header a.buttonLink {
 #currentPageLink{
     color: black;
 }
-
-#pagesControl{
-    text-align: center;
-}
-

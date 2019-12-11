@@ -1,0 +1,31 @@
+﻿@using MarathonSkills.ViewModels
+@model SessionViewModel
+
+<div id="authorizationPage">
+    <h2>Форма авторизации</h2>
+    <div>
+        Пожалуйста, авторизуйтесь в системе, используя ваш адрес электронной почты и пароль.
+    </div>
+    <form asp-action="Create" asp-controller="Sessions" asp-antiforgery="true">
+        <table class="horizontalCenter">
+            <tr>
+                <td class="text-right"><label asp-for="Email">Email:</label></td>
+                <td><input type="email" asp-for="Email" placeholder="Enter your email address" /></td>
+            </tr>
+            <tr>
+                <td class="text-right"><label asp-for="Password">Password:</label></td>
+                <td><input type="password" asp-for="Password" placeholder="Enter your password" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="text-left">
+                    <input class="buttonLink" type="submit" value="Login" />
+                    <a class="buttonLink" href="">Cancel</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+    $("a[href='']").click(function () { history.back(1); return false; });
+</script>
