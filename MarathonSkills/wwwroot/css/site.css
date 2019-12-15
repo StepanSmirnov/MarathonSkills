@@ -65,14 +65,7 @@ footer {
 .buttonsContainer {
     margin-left: auto;
     margin-right: auto;
-}
-
-#homePage .buttonsContainer{
-    width: 400px;
-}
-
-#infoPage .buttonsContainer {
-    width: 480px;
+    display:table;
 }
 
 .buttonLink {
@@ -87,10 +80,11 @@ footer {
     color:inherit;
     line-height: 32px;
     display: inline-block;
+    margin: 10px;
 }
 
 .buttonLink.large{
-    padding: 15px;
+    padding: 15px 30px;
     margin: 5px;
     font-size: 16pt;
 }
@@ -107,10 +101,12 @@ footer {
 .buttonLink:hover {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .3);
     text-decoration: none;
+    color: inherit;
 }
 
 .buttonLink:active {
     box-shadow: none;
+    color: inherit;
 }
 
 #homePage .buttonLink {
@@ -147,4 +143,9 @@ header a.buttonLink {
 
 #currentPageLink{
     color: black;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 15px;
 }

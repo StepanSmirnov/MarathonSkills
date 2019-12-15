@@ -1,0 +1,50 @@
+﻿@using MarathonSkills.ViewModels
+@model RunnerViewModel
+
+<h2>
+    Регистрация бегуна
+</h2>
+<div>
+    Пожалуйста заполните всю информацию, чтобы зарегистрироваться в качестве бегуна
+</div>
+<div class="flex-row">
+    <form asp-action="Create"  asp-controller="Runners" asp-antiforgery="true" method="post">
+        <table class="horizontalCenter">
+            <tr>
+                <td class="text-right"><label asp-for="Email">Email:</label></td>
+                <td><input type="email" asp-for="Email" placeholder="Email" /></td>
+            </tr>
+            <tr>
+                <td class="text-right"><label asp-for="Password">Пароль:</label></td>
+                <td><input type="password" asp-for="Password" placeholder="Пароль" /></td>
+            </tr>
+            <tr>
+                <td class="text-right"><label asp-for="PasswordConfirmation">Повторите пароль:</label></td>
+                <td><input type="password" asp-for="PasswordConfirmation" placeholder="Повторите пароль" /></td>
+            </tr>
+            <tr>
+                <td class="text-right"><label asp-for="FirstName">Имя:</label></td>
+                <td><input type="text" asp-for="FirstName" placeholder="Имя" /></td>
+            </tr>
+            <tr>
+                <td class="text-right"><label asp-for="LastName">Фамилия:</label></td>
+                <td><input type="text" asp-for="LastName" placeholder="Фамилия" /></td>
+            </tr>
+        </table>
+        <table class="horizontalCenter">
+            <tr>
+                <td class="text-right"><label asp-for="Gender">Пол:</label></td>
+                <td><select asp-for="Gender" asp-items="@Model.Genders"></select></td>
+            </tr>
+            <tr>
+                <td class="text-right"><label asp-for="DateOfBirth">Дата рождения:</label></td>
+                <td><input type="date" asp-for="DateOfBirth" /></td>
+            </tr>
+            <tr>
+                <td class="text-right"><label asp-for="CountryCode">Страна</label></td>
+                <td><select asp-for="CountryCode" asp-items="@Model.Countries"></select></td>
+            </tr>
+        </table>
+        <div class="horizontalCenter"><input class="buttonLink" type="submit" value="Регистрация"/><a class="buttonLink" asp-action="Index" asp-controller="Home">Отмена</a></div>
+    </form>
+</div>

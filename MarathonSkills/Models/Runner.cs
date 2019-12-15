@@ -20,6 +20,7 @@ namespace MarathonSkills.Models
 
         [Required]
         [StringLength(100)]
+        [ForeignKey("Gender")]
         public string Gender { get; set; }
 
         public DateTime DateOfBirth { get; set; }
