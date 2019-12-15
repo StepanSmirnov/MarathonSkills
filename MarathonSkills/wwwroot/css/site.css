@@ -68,18 +68,18 @@ footer {
 }
 
 #homePage .buttonsContainer{
-    width: 20em;
+    width: 400px;
 }
 
 #infoPage .buttonsContainer {
-    width: 24em;
+    width: 480px;
 }
 
 .buttonLink {
     background-color: rgb(235, 235, 235);
     border-color: rgb(180, 180, 180);
     border-style: solid;
-    border-radius: 0.5em;
+    border-radius: 10px;
     text-align: center;
     text-decoration: none;
     border-width: thin;
@@ -90,8 +90,8 @@ footer {
 }
 
 .buttonLink.large{
-    padding: 1em;
-    margin: 1em;
+    padding: 15px;
+    margin: 5px;
     font-size: 16pt;
 }
 
@@ -105,7 +105,7 @@ footer {
 }
 
 .buttonLink:hover {
-    box-shadow: rgb(180,180,180) 1px 1px 4px 1px;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .3);
     text-decoration: none;
 }
 
@@ -120,14 +120,14 @@ footer {
 }
 
 .buttonLink#loginButton {
-    width: 5em;
+    width: 80px;
     position: absolute;
     right: 20px;
     bottom: 60px;
 }
 
 header a.buttonLink {
-    padding: 0.3em;
+    padding: 3px;
     vertical-align: super;
     display:inline;
 }

@@ -23,24 +23,43 @@ namespace MarathonSkills.Controllers
 
         public IActionResult New()
         {
-            return View();
+            SessionViewModel viewModel = new SessionViewModel();
+            return View(viewModel);
         }
 
+        [HttpPost]
         public async Task<IActionResult> CreateAsync(SessionViewModel model)
         {
+            await signInManager.SignOutAsync();
             //var findResult = await userManager.FindByIdAsync(model.Email);
             var singInResult = await signInManager.PasswordSignInAsync(model.Email, model.Password, false, false) ;
             if (singInResult.Succeeded)
             {
-                return View();
+                var user = await userManager.FindByNameAsync(model.Email);
+                if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                    return Redirect(model.ReturnUrl);
+                var claims = await signInManager.ClaimsFactory.CreateAsync(user);
+                if (claims.IsInRole("Runner"))
+                {
+                    return View("~/Views/Menus/RunnerMenu.cshtml");
+                }
+                else if (claims.IsInRole("Coordinator"))
+                {
+                    return View("~/Views/Menus/CoordinatorMenu.cshtml");
+                }
+                else if (claims.IsInRole("Administrator"))
+                {
+                    return View("~/Views/Menus/AdministratorMenu.cshtml");
+                }
             }
-            
-            return View();
-        }
+            ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+            return View("New", model);
+            }
 
-        public IActionResult Destroy()
+        public async Task<IActionResult> Destroy()
         {
-            return View();
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

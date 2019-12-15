@@ -11,9 +11,11 @@
 <body>
     <header>
         <a href="" class="buttonLink" id="backButton">Назад</a>
-        <div class="d-inline">
-            <h1 class="d-inline">MARATHON SKILLS 2019</h1>
-        </div>
+        <h1 class="d-inline">MARATHON SKILLS 2019</h1>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a class="buttonLink" asp-action="Destroy" asp-controller="Sessions">Logout</a>
+        }
     </header>
     <div class="text-center">
         @RenderBody()

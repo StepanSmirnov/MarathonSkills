@@ -6,7 +6,7 @@
     <div>
         Пожалуйста, авторизуйтесь в системе, используя ваш адрес электронной почты и пароль.
     </div>
-    <form asp-action="Create" asp-controller="Sessions" asp-antiforgery="true">
+    <form asp-action="Create" asp-controller="Sessions" asp-antiforgery="true" asp-route-returnurl="@Model.ReturnUrl" method="post">
         <table class="horizontalCenter">
             <tr>
                 <td class="text-right"><label asp-for="Email">Email:</label></td>
