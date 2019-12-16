@@ -14,5 +14,7 @@ namespace MarathonSkills.Models
         
         [StringLength(80)]
         public string LastName { get; set; }
+
+        public virtual Runner Runner { get; set; }
     }
 }

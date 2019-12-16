@@ -4,14 +4,16 @@ using MarathonSkills.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MarathonSkills.Migrations
 {
     [DbContext(typeof(MarathonSkillsContext))]
-    partial class MarathonSkillsContextModelSnapshot : ModelSnapshot
+    [Migration("20191216210141_ChangeRunnerUserRelation")]
+    partial class ChangeRunnerUserRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -14,7 +14,6 @@ namespace MarathonSkills.Models
         public int RunnerId { get; set; }
 
         [Required]
-        [StringLength(100)]
         [ForeignKey("User")]
         public string UserId { get; set; }
 
@@ -29,6 +28,8 @@ namespace MarathonSkills.Models
         [ForeignKey("Country")]
         [StringLength(3)]
         public string CountryCode { get; set; }
+
+        public virtual User User { get; set; }
     }
 
 }
