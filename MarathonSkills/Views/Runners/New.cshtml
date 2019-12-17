@@ -74,11 +74,17 @@
     </form>
 </div>
 <script>
-    $.validator.addMethod("tenyearsold", $.validator.methods.range);
-
-    $.validator.unobtrusive.adapters.add(
-        "tenyearsold", [],
+    $.validator.methods.range = function(value, element, param) {
+        if ($(element).attr('data-val-date')) {
+            var min = $(element).attr('data-val-range-min');
+            var max = $(element).attr('data-val-range-max');
+            return this.optional(element) || (value >= min && value <= max);
+        }
+        // use the default method
+        return this.optional( element ) || ( value >= param[ 0 ] && value <= param[ 1 ] );
+    };
+    $.validator.unobtrusive.adapters.add("tenyearsold", [], function (options) {
+        options.rules.tenyearsold = {};
         $.validator.unobtrusive.adapters.find(function (obj) { return obj.name == "range"; }).adapt
-    );
-
+    });
 </script>

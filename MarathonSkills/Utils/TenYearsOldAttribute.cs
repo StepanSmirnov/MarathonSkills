@@ -23,6 +23,7 @@ namespace MarathonSkills.Utils
             if (!context.Attributes.ContainsKey("data-val-range-max")) context.Attributes.Add("data-val-range-max", DateTime.Now.AddYears(-10).ToString("yyyy-MM-dd"));
             if (!context.Attributes.ContainsKey("data-val-range-min")) context.Attributes.Add("data-val-range-min", DateTime.MinValue.ToString("yyyy-MM-dd"));
             if (!context.Attributes.ContainsKey("data-val-range")) context.Attributes.Add("data-val-range", errorMessage);
+            if (!context.Attributes.ContainsKey("data-val-date")) context.Attributes.Add("data-val-date", "true");
         }
     }
 }
