@@ -34,9 +34,9 @@ namespace MarathonSkills
             services.AddIdentity<User, IdentityRole>(options => {
                 options.Password.RequiredLength = 6;
                 options.Password.RequireLowercase = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireDigit = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireDigit = true;
             })
                 .AddEntityFrameworkStores<MarathonSkillsContext>();
             services.AddMvc(options => options.EnableEndpointRouting = false);

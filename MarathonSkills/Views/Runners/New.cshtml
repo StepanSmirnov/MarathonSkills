@@ -8,43 +8,77 @@
     Пожалуйста заполните всю информацию, чтобы зарегистрироваться в качестве бегуна
 </div>
 <div class="flex-row">
-    <form asp-action="Create"  asp-controller="Runners" asp-antiforgery="true" method="post">
+    <form asp-action="Create" asp-controller="Runners" asp-antiforgery="true" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
         <table class="horizontalCenter">
             <tr>
                 <td class="text-right"><label asp-for="Email">Email:</label></td>
-                <td><input type="email" asp-for="Email" placeholder="Email" /></td>
+                <td>
+                    <input type="email" asp-for="Email" placeholder="Email" />
+                    <span asp-validation-for="Email"></span>
+                </td>
             </tr>
             <tr>
                 <td class="text-right"><label asp-for="Password">Пароль:</label></td>
-                <td><input type="password" asp-for="Password" placeholder="Пароль" /></td>
+                <td>
+                    <input type="password" asp-for="Password" placeholder="Пароль" />
+                    <span asp-validation-for="Password"></span>
+                </td>
             </tr>
             <tr>
                 <td class="text-right"><label asp-for="PasswordConfirmation">Повторите пароль:</label></td>
-                <td><input type="password" asp-for="PasswordConfirmation" placeholder="Повторите пароль" /></td>
+                <td>
+                    <input type="password" asp-for="PasswordConfirmation" placeholder="Повторите пароль" />
+                    <span asp-validation-for="PasswordConfirmation"></span>
+                </td>
             </tr>
             <tr>
                 <td class="text-right"><label asp-for="FirstName">Имя:</label></td>
-                <td><input type="text" asp-for="FirstName" placeholder="Имя" /></td>
+                <td>
+                    <input type="text" asp-for="FirstName" placeholder="Имя" />
+                    <span asp-validation-for="FirstName"></span>
+                </td>
             </tr>
             <tr>
                 <td class="text-right"><label asp-for="LastName">Фамилия:</label></td>
-                <td><input type="text" asp-for="LastName" placeholder="Фамилия" /></td>
+                <td>
+                    <input type="text" asp-for="LastName" placeholder="Фамилия" />
+                    <span asp-validation-for="LastName"></span>
+                </td>
             </tr>
         </table>
         <table class="horizontalCenter">
             <tr>
                 <td class="text-right"><label asp-for="Gender">Пол:</label></td>
-                <td><select asp-for="Gender" asp-items="@Model.Genders"></select></td>
+                <td>
+                    <select asp-for="Gender" asp-items="@Model.Genders"></select>
+                    <span asp-validation-for="Gender"></span>
+                </td>
             </tr>
             <tr>
                 <td class="text-right"><label asp-for="DateOfBirth">Дата рождения:</label></td>
-                <td><input type="date" asp-for="DateOfBirth" /></td>
+                <td>
+                    <input type="date" asp-for="DateOfBirth" />
+                    <span asp-validation-for="DateOfBirth"></span>
+                </td>
             </tr>
             <tr>
                 <td class="text-right"><label asp-for="CountryCode">Страна</label></td>
-                <td><select asp-for="CountryCode" asp-items="@Model.Countries"></select></td>
+                <td>
+                    <select asp-for="CountryCode" asp-items="@Model.Countries"></select>
+                    <span asp-validation-for="CountryCode"></span>
+                </td>
             </tr>
         </table>
-        <div class="horizontalCenter"><input class="buttonLink" type="submit" value="Регистрация"/><a class="buttonLink" asp-action="Index" asp-controller="Home">Отмена</a></div>
+        <div class="horizontalCenter"><input class="buttonLink" type="submit" value="Регистрация" /><a class="buttonLink" asp-action="Index" asp-controller="Home">Отмена</a></div>
     </form>
 </div>
+<script>
+    $.validator.addMethod("tenyearsold", $.validator.methods.range);
+
+    $.validator.unobtrusive.adapters.add(
+        "tenyearsold", [],
+        $.validator.unobtrusive.adapters.find(function (obj) { return obj.name == "range"; }).adapt
+    );
+
+</script>
